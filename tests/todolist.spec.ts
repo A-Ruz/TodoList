@@ -33,10 +33,8 @@ test.describe('Todo page tests', () => {
     });
 
     test('complete task works', async ({ page }) => {
-
         await todoPage.addTask(taskData.new);
         await todoPage.completeTask(taskData.new);
-        await page.locator('#mytodos li:last-child input').check();
 
         await expect(page.locator('#mydonetodos')).toContainText(taskData.new);
     });

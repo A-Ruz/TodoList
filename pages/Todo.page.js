@@ -48,11 +48,11 @@ export class TodoPage {
     async moveToTomorrow(text)
     {
         const task = this.taskItems.filter({ hasText: text }).first();
-        task.hover();
-
+        const target = this.page.locator(this.tomorrowTitle);
+        
         this.page.waitForTimeout(1000);
 
-        await task.dragTo(this.page.locator(this.tomorrowTitle));
+        await task.dragTo(target);
     }
 
     async addTask(text)
